@@ -1,2 +1,2 @@
 # jsf
-jsf notes
+using for jsf notes by example
