@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core"
+	  xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>JSF 2.0 Hello World</title>
+</h:head>
+<h:body>
+	<h3>JSF 2.0 example using c:foreach and p:datalist</h3>
+	<h:form>
+		c:foreach
+		<br/>
+		<c:forEach items="#{helloBean.carts}" var="name">
+			<c:if test="#{name == '11111'}">
+				<h:outputText value="c:if work in c:forEach but p:datalist don't" />
+				<br/>
+			</c:if>
+			<h:outputText  value="-#{name}" />
+			<br/>
+		</c:forEach>
+		<br/>
+
+		p:dataList
+		<br/>
+
+		<p:dataList value="#{helloBean.carts}" var="name">
+			<c:if test="#{name == '11111'}">
+				<h:outputText value="you'll never see this text when the page be loaded" />
+			</c:if>
+			<h:outputText value="#{name}" />
+		</p:dataList>
+		<p:commandButton actionListener="#{helloBean.addNewCard}" value="add new"  update="@form" />
+	</h:form>
+</h:body>
+</html>

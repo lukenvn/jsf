@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <factory>
+        <view-declaration-language-factory>com.luke.example.logging.VdlLoggerFactory</view-declaration-language-factory>
+    </factory>
+    <lifecycle>
+        <phase-listener>com.luke.example.listener.InvokeApplicationListener</phase-listener>
+        <!--<phase-listecom.luke.example.listener.RestoreViewPhaseListenerener</phase-listener>-->
+    </lifecycle>
+    <application>
+        <system-event-listener>
+            <system-event-listener-class>com.luke.example.event.PreRenderViewEventImpl</system-event-listener-class>
+            <system-event-class>javax.faces.event.PreRenderViewEvent</system-event-class>
+        </system-event-listener>
+        <system-event-listener>
+            <system-event-listener-class>com.luke.example.event.PreRenderComponentImpl</system-event-listener-class>
+            <system-event-class>javax.faces.event.PreRenderComponentEvent</system-event-class>
+        </system-event-listener>
+
+    </application>
+</faces-config>
